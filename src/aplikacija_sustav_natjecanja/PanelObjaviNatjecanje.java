@@ -51,24 +51,21 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         Naslov = new javax.swing.JLabel();
         Naziv = new javax.swing.JLabel();
         naziv = new javax.swing.JTextField();
-        Opis = new javax.swing.JLabel();
-        pitanje1 = new javax.swing.JTextField();
         ObjaviNatjecanje = new javax.swing.JButton();
-        Opis1 = new javax.swing.JLabel();
-        odgovor1 = new javax.swing.JTextField();
-        Opis2 = new javax.swing.JLabel();
-        Opis3 = new javax.swing.JLabel();
-        pitanje2 = new javax.swing.JTextField();
-        odgovor2 = new javax.swing.JTextField();
-        Opis4 = new javax.swing.JLabel();
-        Opis5 = new javax.swing.JLabel();
-        pitanje3 = new javax.swing.JTextField();
-        odgovor3 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         Objavljeno = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         naslov = new javax.swing.JLabel();
-        prikazNaziv = new java.awt.TextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(750, 500));
         jPanel1.setRequestFocusEnabled(false);
@@ -109,11 +106,7 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         Naziv.setForeground(new java.awt.Color(255, 255, 255));
         Naziv.setText("Naziv natjecanja:");
 
-        Opis.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Opis.setForeground(new java.awt.Color(255, 255, 255));
-        Opis.setText("1. Pitanje:");
-
-        ObjaviNatjecanje.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ObjaviNatjecanje.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         ObjaviNatjecanje.setForeground(new java.awt.Color(255, 255, 255));
         ObjaviNatjecanje.setText("Objavi natjecanje");
         ObjaviNatjecanje.addActionListener(new java.awt.event.ActionListener() {
@@ -122,77 +115,47 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
             }
         });
 
-        Opis1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Opis1.setForeground(new java.awt.Color(255, 255, 255));
-        Opis1.setText("1. Odgovor:");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Opis natjecanja:");
 
-        Opis2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Opis2.setForeground(new java.awt.Color(255, 255, 255));
-        Opis2.setText("2. Pitanje:");
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Pocetak natjecanja:");
 
-        Opis3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Opis3.setForeground(new java.awt.Color(255, 255, 255));
-        Opis3.setText("2. Odgovor:");
-
-        Opis4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Opis4.setForeground(new java.awt.Color(255, 255, 255));
-        Opis4.setText("3. Pitanje:");
-
-        Opis5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Opis5.setForeground(new java.awt.Color(255, 255, 255));
-        Opis5.setText("3. Odgovor:");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Naslov)
-                        .addContainerGap(149, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Naziv)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(naziv))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Opis)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pitanje1))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Opis1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(odgovor1)))
-                        .addGap(11, 11, 11))
+                                .addGap(6, 6, 6)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(ObjaviNatjecanje)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(Naslov)
+                    .addComponent(Naziv)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Opis2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pitanje2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Opis3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(odgovor2)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Opis4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pitanje3))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Opis5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(odgovor3)))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ObjaviNatjecanje)
-                .addGap(109, 109, 109))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(naziv, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,36 +163,20 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(Naslov)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Naziv)
-                    .addComponent(naziv, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Opis)
-                    .addComponent(pitanje1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Naziv)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Opis1)
-                    .addComponent(odgovor1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Opis2)
-                    .addComponent(pitanje2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(naziv, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Opis3)
-                    .addComponent(odgovor2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Opis4)
-                    .addComponent(pitanje3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Opis5)
-                    .addComponent(odgovor3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(ObjaviNatjecanje, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGap(94, 94, 94))
         );
 
         jPanel3.setBackground(new java.awt.Color(78, 80, 82));
@@ -242,9 +189,29 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         naslov.setForeground(new java.awt.Color(51, 153, 255));
         naslov.setText("Prikaz naziva objavljenih natjecanja:");
 
-        prikazNaziv.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        prikazNaziv.setEditable(false);
-        prikazNaziv.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lista.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lista.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Prikaz natjecanja" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lista);
+
+        jButton1.setText("Definiraj pitanja");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Izbriši natjecanje");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Promijeni informacije");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -253,9 +220,16 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(naslov)
-                    .addComponent(prikazNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(naslov))
+                .addGap(39, 39, 39))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,8 +237,15 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(naslov)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(prikazNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton2)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -295,8 +276,7 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +284,8 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    DefaultListModel mod = new DefaultListModel();
+    
     private void ObjaviNatjecanjeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjaviNatjecanjeActionPerformed
         String nazivNatjecanja = naziv.getText();
 
@@ -312,33 +293,23 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         ArrayList<String> listaPitanja = new ArrayList<>();
         List<String> točniOdgovori = new ArrayList<>();
 
-        String Pitanje1 = pitanje1.getText();
-        String Odgovor1 = odgovor1.getText();
-        String Pitanje2 = pitanje2.getText();
-        String Odgovor2 = odgovor2.getText();
-        String Pitanje3 = pitanje3.getText();
-        String Odgovor3 = odgovor3.getText();
-
-        listaPitanja.add(Pitanje1);
-        listaPitanja.add(Pitanje2);
-        listaPitanja.add(Pitanje3);
-
-        točniOdgovori.add(Odgovor1);
-        točniOdgovori.add(Odgovor2);
-        točniOdgovori.add(Odgovor3);
-
         String[] točniOdgovoriArray = točniOdgovori.toArray(new String[0]);
 
         Natjecanje.unosNatjecanja(nazivNatjecanja, listaPitanja, točniOdgovoriArray);
-        Natjecanje.spremiPodatkeUDatoteku();
-
-        String trenutniTekst = prikazNaziv.getText();
-        if (!trenutniTekst.isEmpty()) {
-            trenutniTekst += "\n";
-        }
-        trenutniTekst += nazivNatjecanja;
-        prikazNaziv.setText(trenutniTekst);
+        Natjecanje.spremiPodatkeUDatoteku();    
+        
+        lista.setModel(mod);        
+        mod.addElement(naziv.getText());
+        
     }//GEN-LAST:event_ObjaviNatjecanjeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -346,29 +317,26 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
     private javax.swing.JLabel Naziv;
     private javax.swing.JButton ObjaviNatjecanje;
     private javax.swing.JLabel Objavljeno;
-    private javax.swing.JLabel Opis;
-    private javax.swing.JLabel Opis1;
-    private javax.swing.JLabel Opis2;
-    private javax.swing.JLabel Opis3;
-    private javax.swing.JLabel Opis4;
-    private javax.swing.JLabel Opis5;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JList<String> lista;
     private javax.swing.JLabel naslov;
     private javax.swing.JTextField naziv;
-    private javax.swing.JTextField odgovor1;
-    private javax.swing.JTextField odgovor2;
-    private javax.swing.JTextField odgovor3;
-    private javax.swing.JTextField pitanje1;
-    private javax.swing.JTextField pitanje2;
-    private javax.swing.JTextField pitanje3;
-    private java.awt.TextArea prikazNaziv;
     // End of variables declaration//GEN-END:variables
 }
