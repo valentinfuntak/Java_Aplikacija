@@ -1,6 +1,14 @@
 package aplikacija_sustav_natjecanja;
 
 import java.awt.CardLayout;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import klase.Natjecanje;
+import static klase.Natjecanje.listaNatjecanja;
+import static sun.util.calendar.CalendarUtils.mod;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,6 +37,28 @@ public class FrameHome extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
     } 
+    
+    private void prikaziNaziveNatjecanja() {
+        try (FileInputStream fileIn = new FileInputStream("C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt");
+             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+
+            while (true) {
+                Object obj = objectIn.readObject();
+                if (obj instanceof ArrayList) {
+                    ArrayList<Natjecanje> natjecanja = (ArrayList<Natjecanje>) obj;
+                    for (Natjecanje natjecanje : natjecanja) {
+                        String nazivNatjecanja = natjecanje.getNazivNatjecanja();
+                        listaNatjecanja.add(natjecanje);
+                       // mod.addElement(nazivNatjecanja);
+                    }
+                }
+            }
+        } catch (EOFException e) {
+            // Do nothing, end of file reached
+        } catch (IOException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

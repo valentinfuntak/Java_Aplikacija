@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class Natjecanje implements java.io.Serializable {
 
     private static final long serialVersionUID = 6474931121217821703L;
@@ -18,7 +19,7 @@ public class Natjecanje implements java.io.Serializable {
     private static String[] točniOdgovori;
     public static ArrayList<Natjecanje> listaNatjecanja = new ArrayList<>();
 
-    String filename = "C:\\Users\\vfuntak\\Documents\\NetBeansProjects\\Aplikacija_sustav_natjecanja 12.5\\SVE\\Objavljena_natjecanja.txt";
+    String filename = "C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt";
 
     //KONSTRUKTOR
     public Natjecanje(String nazivNatjecanja, ArrayList<String> listaPitanja, String[] točniOdgovori) {
@@ -64,7 +65,7 @@ public class Natjecanje implements java.io.Serializable {
     }
     
     public static void spremiPodatkeUDatoteku() {
-        File myFile = new File("C:\\Users\\vfuntak\\Documents\\NetBeansProjects\\Aplikacija_sustav_natjecanja 12.5\\SVE\\Objavljena_natjecanja.txt");
+        File myFile = new File("C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt");
         try (FileOutputStream fileOut = new FileOutputStream(myFile, true); ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);) {          
 
             //ArrayList<String> listaPitanja = new ArrayList<>();
@@ -94,6 +95,20 @@ public class Natjecanje implements java.io.Serializable {
         } catch (IOException ex) {
             System.err.println("Doslo je do greske pri spremanju podataka u datoteku.");
         }
+    }
+    
+    private static final String FILE_NAME = "C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt";
+    public static ArrayList<Natjecanje> prikaziNatjecanja() {
+        ArrayList<Natjecanje> natjecanja = new ArrayList<>();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
+            System.out.println("\nPodaci su uspjesno deserijalizirani!");
+            natjecanja = (ArrayList<Natjecanje>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            System.out.println("\n Datoteka nije pronadena: " + FILE_NAME);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return natjecanja;
     }
 
      /*public static void Serijalizacija(List<Natjecanje> listaNatjecanja) {
