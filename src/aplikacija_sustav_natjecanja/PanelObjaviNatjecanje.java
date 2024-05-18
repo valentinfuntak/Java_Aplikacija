@@ -54,7 +54,7 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        opis = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         naslov = new javax.swing.JLabel();
@@ -121,9 +121,9 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Pocetak natjecanja:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        opis.setColumns(20);
+        opis.setRows(5);
+        jScrollPane2.setViewportView(opis);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -270,13 +270,11 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     DefaultListModel mod = new DefaultListModel();
 
-    
-    
-    private void ObjaviNatjecanjeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjaviNatjecanjeActionPerformed
-        String nazivNatjecanja = naziv.getText();
 
-        ArrayList<Natjecanje> listaNatjecanja = new ArrayList<>();
+    private void ObjaviNatjecanjeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjaviNatjecanjeActionPerformed
+        String nazivNatjecanja = naziv.getText();   
         ArrayList<String> listaPitanja = new ArrayList<>();
+        
         List<String> točniOdgovori = new ArrayList<>();
 
         String[] točniOdgovoriArray = točniOdgovori.toArray(new String[0]);
@@ -285,8 +283,7 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
         Natjecanje.spremiPodatkeUDatoteku();    
         
         lista.setModel(mod);        
-        mod.addElement(naziv.getText());
-        
+        mod.addElement(naziv.getText());    
     }//GEN-LAST:event_ObjaviNatjecanjeActionPerformed
 
     private void definirajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_definirajActionPerformed
@@ -319,10 +316,10 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JList<String> lista;
     private javax.swing.JLabel naslov;
     private javax.swing.JTextField naziv;
+    private javax.swing.JTextArea opis;
     // End of variables declaration//GEN-END:variables
 }

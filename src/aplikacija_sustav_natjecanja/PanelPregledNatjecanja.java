@@ -37,7 +37,7 @@ public class PanelPregledNatjecanja extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     DefaultListModel mod = new DefaultListModel();
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -52,7 +52,7 @@ public class PanelPregledNatjecanja extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(78, 146, 118));
         jLabel1.setText("Pregled natjecanja");
 
-        pregledNatjecanja.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        pregledNatjecanja.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         pregledNatjecanja.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Trenutno nema natjecanja" };
             public int getSize() { return strings.length; }
@@ -72,9 +72,9 @@ public class PanelPregledNatjecanja extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,16 +88,19 @@ public class PanelPregledNatjecanja extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UcitajPrikaziNatjecanja() {
-        ArrayList<Natjecanje> natjecanja = prikaziNatjecanja();
-        pregledNatjecanja.setModel(mod); 
+        ArrayList<Natjecanje> natjecanja = Natjecanje.prikaziNatjecanja();
+        DefaultListModel<String> mod = new DefaultListModel<>();
+        pregledNatjecanja.setModel(mod);
         if (natjecanja.isEmpty()) {
-            mod.addElement("");
+            mod.addElement("Nema natjecanja");
         } else {
             for (Natjecanje natjecanje : natjecanja) {
-                mod.addElement(natjecanje.getNazivNatjecanja());
+                mod.addElement(natjecanje.toString());
             }
         }
+        repaint();
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

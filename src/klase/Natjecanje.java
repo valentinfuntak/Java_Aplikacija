@@ -1,14 +1,10 @@
 //Problem je bil u write parametru u serijalizaciji 
 package klase;
 
-import static klase.Korisnik.osvojeniBodovi;
+//import static klase.Korisnik.osvojeniBodovi;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class Natjecanje implements java.io.Serializable {
@@ -51,32 +47,29 @@ public class Natjecanje implements java.io.Serializable {
     }
 
     //FUNKCIJE
-    
-    public static void unosNatjecanja(String NazivNatjecanja,ArrayList<String> listaPitanja,String[] točniOdgovori){
-       try {
-       Natjecanje natjecanje = new Natjecanje(NazivNatjecanja, listaPitanja, točniOdgovori);
-       
-       listaNatjecanja.add(natjecanje);
-        
-    } catch (Exception ex) {
-        System.out.println("Došlo je do greške pri unosu natjecanja.");
-        System.out.println("Detaljan uzrok iznimke: " + ex.toString());
-    } 
+    public static void unosNatjecanja(String NazivNatjecanja, ArrayList<String> listaPitanja, String[] točniOdgovori) {
+        try {
+            Natjecanje natjecanje = new Natjecanje(NazivNatjecanja, listaPitanja, točniOdgovori);
+
+            listaNatjecanja.add(natjecanje);
+
+        } catch (Exception ex) {
+            System.out.println("Došlo je do greške pri unosu natjecanja.");
+            System.out.println("Detaljan uzrok iznimke: " + ex.toString());
+        }
     }
-    
+
     public static void spremiPodatkeUDatoteku() {
         File myFile = new File("C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt");
-        try (FileOutputStream fileOut = new FileOutputStream(myFile, true); ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);) {          
-
-            //ArrayList<String> listaPitanja = new ArrayList<>();
+        try (FileOutputStream fileOut = new FileOutputStream(myFile, true); ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);) {
 
             Natjecanje natjecanje = new Natjecanje(nazivNatjecanja, listaPitanja, točniOdgovori);
-            listaNatjecanja.add(natjecanje);            
-            
-            objectOut.writeObject(listaNatjecanja);
+            listaNatjecanja.add(natjecanje);
 
-            objectOut.writeObject("\nNaziv natjecanja: " + nazivNatjecanja);
+            objectOut.writeObject(listaNatjecanja);
             
+            objectOut.writeObject("\nNaziv natjecanja: " + nazivNatjecanja);
+
             int redniBrojPitanja = 1;
             int redniBrojTocnogOdgovora = 1;
 
@@ -87,8 +80,8 @@ public class Natjecanje implements java.io.Serializable {
                 objectOut.writeObject("\nTocan odgovor na " + redniBrojTocnogOdgovora++ + "." + " pitanje:" + " " + odgovor);
             }
 
-            objectOut.writeObject("\n>\n\n");
-
+            objectOut.writeObject("\n>\n");
+            
             objectOut.close();
             fileOut.close();
             System.out.println("Podaci su uspjesno spremljeni u datoteku.");
@@ -96,92 +89,36 @@ public class Natjecanje implements java.io.Serializable {
             System.err.println("Doslo je do greske pri spremanju podataka u datoteku.");
         }
     }
-    
-    private static final String FILE_NAME = "C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt";
+
     public static ArrayList<Natjecanje> prikaziNatjecanja() {
         ArrayList<Natjecanje> natjecanja = new ArrayList<>();
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
-            System.out.println("\nPodaci su uspjesno deserijalizirani!");
-            natjecanja = (ArrayList<Natjecanje>) ois.readObject();
+        String fileName = "C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Java_Aplikacija\\SVE\\Objavljena_natjecanja.txt";
+
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
+            natjecanja = (ArrayList<Natjecanje>) in.readObject();
+            System.out.println("\nDeserijalizirani podaci:");
+            for (Natjecanje natjecanje : natjecanja) {
+                System.out.println(natjecanje.toString());
+            }
         } catch (FileNotFoundException e) {
-            System.out.println("\n Datoteka nije pronadena: " + FILE_NAME);
+            System.out.println("\nDatoteka nije pronadena: " + fileName);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return natjecanja;
     }
 
-     /*public static void Serijalizacija(List<Natjecanje> listaNatjecanja) {
-        String filename = "C:\\Users\\valen\\OneDrive\\Documents\\NetBeansProjects\\Aplikacija_sustav_natjecanja novo\\SVE\\Objavljena_natjecanja.txt";
-        System.out.println("\n************ OBJAVI NATJECANJE ************");
-        try {
-            FileOutputStream natjecanjeFile = new FileOutputStream(filename, true);
-            ObjectOutputStream out = new ObjectOutputStream(natjecanjeFile);
-
-            Scanner unos = new Scanner(System.in);
-            System.out.print("Unesite naziv natjecanja: \n");
-            String nazivNatjecanja = unos.nextLine();
-
-            System.out.print("Unesite broj pitanja: \n");
-            int brojPitanja = unos.nextInt();
-            unos.nextLine();
-
-            ArrayList<String> listaPitanja = new ArrayList<>();
-            String[] točniOdgovori = new String[brojPitanja];
-
-            for (int i = 0; i < brojPitanja; i++) {
-                System.out.print("Unesite " + (i + 1) + ". pitanje: \n");
-                String pitanje = unos.nextLine();
-                listaPitanja.add(pitanje);
-
-                System.out.print("Unesite tocan odgovor za pitanje " + (i + 1) + ": \n");
-                String točanOdgovor = unos.nextLine();
-                točniOdgovori[i] = točanOdgovor;
-            }
-
-            Natjecanje natjecanje = new Natjecanje(nazivNatjecanja, listaPitanja, točniOdgovori);
-            listaNatjecanja.add(natjecanje);
-
-            out.writeObject(listaNatjecanja);
-
-            int redniBrojPitanja = 1;
-            int redniBrojTocnogOdgovora = 1;
-
-            out.writeObject("\nBroj pitanja:" + brojPitanja);
-
-            for (String pitanje : listaPitanja) {
-                out.writeObject("\n" + redniBrojPitanja++ + "." + " Pitanje:" + pitanje);
-            }
-            for (String odgovor : točniOdgovori) {
-                out.writeObject("\nTocan odgovor na " + redniBrojTocnogOdgovora++ + "." + " pitanje:" + " " + odgovor);
-            }
-
-            out.writeObject("\n>\n");
-
-            out.close();
-            natjecanjeFile.close();
-
-        } catch (FileNotFoundException ex) {
-            System.out.println("FileNotFoundException is caught");
-        } catch (IOException ex) {
-            System.out.println("IOException is caught");
-        }
-    } */
-    
-    public static List<Natjecanje> DeserijalizacijaNatjecanja() {
+    /*public static List<Natjecanje> DeserijalizacijaNatjecanja() {
         String filename = "C:\\Users\\vfuntak\\Documents\\NetBeansProjects\\Aplikacija_sustav_natjecanja 12.5\\SVE\\Objavljena_natjecanja.txt";
         ArrayList<Natjecanje> listaNatjecanja = new ArrayList<>();
         try {
             FileInputStream fileIn = new FileInputStream(filename);
             ObjectInputStream in = new ObjectInputStream(fileIn);
 
-            //ArrayList<Natjecanje> listaNatjecanja = (ArrayList<Natjecanje>) in.readObject();
-            //listaNatjecanja = (ArrayList<Natjecanje>) (List<Natjecanje>) in.readObject();
             listaNatjecanja = (ArrayList<Natjecanje>) in.readObject();
-
             System.out.println("\nImena natjecanja:");
             for (Natjecanje natjecanje : listaNatjecanja) {
-                System.out.println(natjecanje.getNazivNatjecanja());
+                System.out.println(natjecanje.toString());
             }
 
             in.close();
@@ -198,9 +135,9 @@ public class Natjecanje implements java.io.Serializable {
         }
 
         return listaNatjecanja;
-    }
+    }*/
 
-    /*public static List<Natjecanje> Deserijalizacija(String filename) {
+ /*public static List<Natjecanje> Deserijalizacija(String filename) {
         List<Natjecanje> listaNatjecanja = null;
         try {
             FileInputStream filein = new FileInputStream(filename);
@@ -250,7 +187,7 @@ public class Natjecanje implements java.io.Serializable {
         int redniBrojPitanja = 1;
         int redniBrojTocnogOdgovora = 1;
     }*/
-    public static void ispisiNatjecanja() {
+ /*public static void ispisiNatjecanja() {
         int redniBroj = 1;
         Scanner scanner = new Scanner(System.in);
         if (!listaNatjecanja.isEmpty()) {
@@ -342,5 +279,5 @@ public class Natjecanje implements java.io.Serializable {
         }
 
         System.out.println("\nUkupan broj osvojenih bodova: " + osvojeniBodovi);
-    }
+    }*/
 }

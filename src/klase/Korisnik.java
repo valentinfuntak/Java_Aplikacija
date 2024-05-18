@@ -1,4 +1,4 @@
-package klase;
+/*package klase;
 
 import static klase.Natjecanje.listaNatjecanja;
 import java.util.ArrayList;
@@ -131,4 +131,4 @@ public class Korisnik {
         return lozinka.equals(unesenaLozinka);
     }
 
-}
+}*/

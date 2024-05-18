@@ -1,4 +1,4 @@
-package klase;
+/*package klase;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -106,4 +106,4 @@ public class BP  {
         Natjecanje.obrisiNatjecanje();
     }
 
-}
+}*/

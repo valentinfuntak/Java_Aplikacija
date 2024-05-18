@@ -1,4 +1,4 @@
-package klase;
+/*package klase;
 
 
 import java.util.ArrayList;
@@ -94,4 +94,4 @@ class Izbornik implements java.io.Serializable {
             }
         } while (izbor != 0 && izbor != 7);
     }
-}
+}*/
