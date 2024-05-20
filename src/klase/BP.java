@@ -1,4 +1,4 @@
-/*package klase;
+package klase;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -103,7 +103,7 @@ public class BP  {
     }
 
     public void izbrisiNatjecanjeAdmin() {
-        Natjecanje.obrisiNatjecanje();
+       // Natjecanje.obrisiNatjecanje();
     }
 
-}*/
+}

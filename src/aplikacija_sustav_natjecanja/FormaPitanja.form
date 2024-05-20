@@ -45,16 +45,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="questionLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="questionField1" min="-2" pref="455" max="-2" attributes="0"/>
+                              <Component id="odgovor" min="-2" pref="455" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="questionLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="questionField" min="-2" pref="455" max="-2" attributes="0"/>
+                              <Component id="pitanje" min="-2" pref="455" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="potvrdi" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -75,17 +75,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="potvrdi" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="questionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="questionField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pitanje" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="questionField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="odgovor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="questionLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -144,16 +144,16 @@
         <Property name="text" type="java.lang.String" value="Pitanje"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="questionField">
+    <Component class="javax.swing.JTextField" name="pitanje">
     </Component>
-    <Component class="javax.swing.JTextField" name="questionField1">
+    <Component class="javax.swing.JTextField" name="odgovor">
     </Component>
     <Component class="javax.swing.JLabel" name="questionLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Odgovor"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="potvrdi">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -161,7 +161,7 @@
         <Property name="text" type="java.lang.String" value="Potvrdi"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="potvrdiActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

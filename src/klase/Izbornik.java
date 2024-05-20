@@ -1,4 +1,4 @@
-/*package klase;
+package klase;
 
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ class Izbornik implements java.io.Serializable {
         System.out.println("\n\n************ PREGLED NATJECANJA ***********");
 
         //Natjecanje.ispisiNatjecanja();
-        Natjecanje.DeserijalizacijaNatjecanja();
+        //Natjecanje.DeserijalizacijaNatjecanja();
     }
 
     void sudjelovanaNatjecanja() {
@@ -94,4 +94,4 @@ class Izbornik implements java.io.Serializable {
             }
         } while (izbor != 0 && izbor != 7);
     }
-}*/
+}

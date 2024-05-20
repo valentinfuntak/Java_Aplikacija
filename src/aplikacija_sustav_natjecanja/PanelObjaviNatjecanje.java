@@ -9,9 +9,8 @@ import klase.Natjecanje;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
+
 
 /**
  *
@@ -274,11 +273,12 @@ public class PanelObjaviNatjecanje extends javax.swing.JPanel {
     private void ObjaviNatjecanjeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjaviNatjecanjeActionPerformed
         String nazivNatjecanja = naziv.getText();   
         ArrayList<String> listaPitanja = new ArrayList<>();
+        ArrayList<Natjecanje> listaNatjecanja = new ArrayList<>();
         
         List<String> točniOdgovori = new ArrayList<>();
 
-        String[] točniOdgovoriArray = točniOdgovori.toArray(new String[0]);
-
+        String[] točniOdgovoriArray = točniOdgovori.toArray(new String[0]);   
+        
         Natjecanje.unosNatjecanja(nazivNatjecanja, listaPitanja, točniOdgovoriArray);
         Natjecanje.spremiPodatkeUDatoteku();    
         

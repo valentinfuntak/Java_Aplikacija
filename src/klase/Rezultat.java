@@ -1,4 +1,4 @@
-/*package klase;
+package klase;
 
 import static klase.Korisnik.korisnickoIme;
 import static klase.Korisnik.osvojeniBodovi;
@@ -45,5 +45,5 @@ public class Rezultat {
         }
 
     }
-}*/
+}
 
